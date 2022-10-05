@@ -57,28 +57,71 @@ typedef struct var_s
 /* global struct to hold flag for queue and stack length */
 extern var_t var;
 
-void get_op(char *op, stack_t **stack, unsigned int line_number);
-void m_push(stack_t **stack, unsigned int line_number);
-void m_push2(stack_t **stack, int n);
-void m_pall(stack_t **stack, unsigned int line_number);
-void m_pint(stack_t **stack, unsigned int line_number);
-void m_pop(stack_t **stack, unsigned int line_number);
-void m_swap(stack_t **stack, unsigned int line_number);
-void m_add(stack_t **stack, unsigned int line_number);
-void m_nop(stack_t **stack, unsigned int line_number);
-void m_sub(stack_t **stack, unsigned int line_number);
-void m_mul(stack_t **stack, unsigned int line_number);
-void m_div(stack_t **stack, unsigned int line_number);
-void m_mod(stack_t **stack, unsigned int line_number);
+
+/**
+ * struct arguments - Values to be accessed by various functions
+ * @argv: Name of the executable
+ * @counter: counts number of lines
+ * @line: input line
+ * @stack: doubly linked list
+ * @file: file
+ * @order: FIFO or LIFO
+ */
+typedef struct arguments
+{
+	char **argv;
+	ssize_t counter;
+	char *line;
+	stack_t *stack;
+	FILE *file;
+	int order;
+} args_t;
+
+/* str-ops functions start */
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-void m_stack(stack_t **stack, unsigned int line_number);
-void m_queue(stack_t **stack, unsigned int line_number);
-void m_pchar(stack_t **stack, unsigned int line_number);
-void m_pstr(stack_t **stack, unsigned int line_number);
-void free_stack(int status, void *arg);
-void m_fs_close(int status, void *arg);
-void free_lineptr(int status, void *arg);
-stack_t *add_node(stack_t **stack, const int n);
+/* str-ops functions end*/
 
-#endif /* _MONTY_H_ */
+/* opcodes functions start */
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+/* opcodes functions end*/
+
+/* interpreter functions start */
+void monty(void);
+void caller(void);
+void cleaner(void);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+/* interpreter functions end*/
+
+/* interpreter-ii functions start */
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+/* interpreter-ii functions end*/
+
+/* math-ops functions start */
+void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+/* math-ops functions end*/
+
+/* linkedlist functions start */
+stack_t *add_dnodeint(stack_t **head, const int n);
+size_t print_dlistint(const stack_t *h);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+void free_dlistint(stack_t *head);
+size_t stack_size(const stack_t *h);
+int check_string(char *s);
+/* linkedlist functions end*/
+
+extern args_t args;
+
+#endif /* ifndef MONTY_H*/

@@ -100,10 +100,10 @@ void cleaner(void);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 /* interpreter functions end*/
 
-/* interpreter-ii functions start */
+/* interpreter-2 functions start */
 void stack(stack_t **stack, unsigned int line_number);
 void queue(stack_t **stack, unsigned int line_number);
-/* interpreter-ii functions end*/
+/* interpreter-2 functions end*/
 
 /* math-ops functions start */
 void add(stack_t **stack, unsigned int line_number);
@@ -124,4 +124,4 @@ int check_string(char *s);
 
 extern args_t args;
 
-#endif /* ifndef MONTY_H*/
+#endif /* ifndeg MONTY_H*/

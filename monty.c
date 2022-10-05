@@ -1,7 +1,5 @@
 #include "monty.h"
 
-args_t args;
-
 /**
  * main - entry point
  * @argc: number of arguments

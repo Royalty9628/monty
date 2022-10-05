@@ -3,7 +3,6 @@
 /**
  * cleaner - cleans stack
  */
-
 void cleaner(void)
 {
 	free_dlistint(args.stack);
@@ -17,7 +16,6 @@ void cleaner(void)
  * monty - custom interpretor
  * Return: Nothing
  */
-
 void monty(void)
 {
 	char line[128];
@@ -44,7 +42,6 @@ void monty(void)
 /**
  * caller - caller
  */
-
 void caller(void)
 {
 	instruction_t ins[] = {
@@ -91,7 +88,6 @@ void caller(void)
  * @stack: doubly linked list
  * @line_number: the line
  */
-
 void rotl(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
@@ -108,7 +104,6 @@ void rotl(stack_t **stack, unsigned int line_number)
  * @n: data for a node
  * Return: doubly linked list
  */
-
 stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
 	stack_t *new_node = NULL;

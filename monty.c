@@ -1,4 +1,7 @@
+
 #include "monty.h"
+
+args_t args;
 
 /**
  * main - entry point
@@ -6,6 +9,7 @@
  * @argv: array of argc
  * Return: success on exit, exit failure otherwise
  */
+
 int main(int argc, char **argv)
 {
 	if (argc != 2)
